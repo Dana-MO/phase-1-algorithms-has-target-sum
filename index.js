@@ -2,22 +2,11 @@ function hasTargetSum(array, target) {
   // Write your algorithm here
 
   for (let i = 0; i < array.length; i++) {
-    const difference = target - array[i];
-    // console.log(difference);
-
-    const newArr = array.filter(notElement)
-   
-    function notElement(number) {
-      if (number !== array[i]) {
-        return number;
-      }
-    }
-
-    if (newArr.indexOf(difference) !== -1) {
-      return true;
+    const complement = target - array[i];
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] === complement) return true;
     }
   }
-
   return false;
 
 }
